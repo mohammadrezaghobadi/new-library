@@ -1,0 +1,8 @@
+{
+  "command_name": "Task1",
+  "parameters": {
+      "page": 2,
+      "perPage": 1,
+      "authorName": "Aldous Orson"
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "mohammad/library-new",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mohammad ghobadi",
+            "email": "mohammadrezaghobadi.1383@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-json": "*"
+    }
+}
