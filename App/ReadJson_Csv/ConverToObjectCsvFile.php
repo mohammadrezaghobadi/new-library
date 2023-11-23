@@ -4,9 +4,9 @@ namespace App\ReadJson_Csv;
 
 use App\Dto\BookDto;
 
-class ConverToObjectCsvFile
+class ConverToObjectCsvFile implements ConverToObjectCsvInterface
 {
-    public function converToObjectCsv(){
+    public function converToObjectCsv():array{
         $fileCsv = [];
         $fp = fopen(__DIR__ . "\..\..\assingment\database\books.csv","r");
         while ($data = fgetcsv($fp)){

@@ -11,19 +11,19 @@ class RequestManagement
     /**
      * @var mixed
      */
-    public $request;
+    public mixed $request;
 
     public function __construct($request)
     {
         $this -> request = $request;
     }
-    public function management(){
+    public function management():void{
         if($this -> request -> command_name === "Task1"){
             $validationIndex = new ValidationIndex();
             try {
                 $validationIndex -> checkValidation($this -> request);
                 $bookIndex = new BookIndex($this -> request);
-                $bookIndex -> converToObject();
+                $bookIndex -> handel();
             }catch (Exception $e){
                 echo "Enter the desired type";
             }

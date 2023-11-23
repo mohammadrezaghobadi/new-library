@@ -26,4 +26,8 @@ class BookIndex
     public function mergeData():array{
         return array_merge($this -> handelDataJson(),$this->handelDataCsv());
     }
+    public function handel():void{
+        $arrangeTheLibrary = new ArrangeTheLibrary();
+        $arrangeTheLibrary -> arrange($this -> mergeData());
+    }
 }
