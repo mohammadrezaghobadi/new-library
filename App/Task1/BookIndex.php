@@ -2,9 +2,8 @@
 
 namespace App\Task1;
 
-use App\Dto\BookDto;
-use App\ReadJson_Csv\ReadCsv;
-use App\ReadJson_Csv\ReadJson;
+use App\ReadJson_Csv\ConverToObjectCsvFile;
+use App\ReadJson_Csv\ConverToObjectJsonFile;
 
 class BookIndex
 {
@@ -16,7 +15,15 @@ class BookIndex
     {
         $this -> request = $request;
     }
-    public function converToObject(){
-
+    private function handelDataCsv():array{
+        $converToObjectCsv = new ConverToObjectCsvFile();
+        return $converToObjectCsv -> converToObjectCsv();
+    }
+    private function handelDataJson():array{
+        $converToObjectJson = new ConverToObjectJsonFile();
+        return $converToObjectJson -> converToObjectJson();
+    }
+    public function mergeData():array{
+        return array_merge($this -> handelDataJson(),$this->handelDataCsv());
     }
 }
