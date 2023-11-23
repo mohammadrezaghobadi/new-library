@@ -22,7 +22,7 @@ class RequestManagement
             $validationIndex = new ValidationIndex();
             try {
                 $validationIndex -> checkValidation($this -> request);
-                $bookIndex = new BookIndex($this -> request);
+                $bookIndex = new BookIndex($this -> request -> parameters);
                 $bookIndex -> handel();
             }catch (Exception $e){
                 echo "Enter the desired type";

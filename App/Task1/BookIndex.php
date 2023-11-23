@@ -34,6 +34,16 @@ class BookIndex
     }
     public function handel():void{
         $arrangeTheLibrary = new ArrangeTheLibrary();
+        $authorsChoise = new AuthorsChoice();
+        echo "<br />";
+        echo "--------------------------------";
+        echo "<br />";
+        echo "arrange_authorName";
         $arrangeTheLibrary -> arrange($this -> timeStamp());
+        echo "<br />";
+        echo "--------------------------------";
+        echo "<br />";
+        echo "choise_authorName";
+        $authorsChoise -> choiseData($this -> timeStamp(),$this -> request -> authorName,$this -> request -> page,$this -> request -> perPage);
     }
 }
