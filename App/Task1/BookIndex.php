@@ -17,15 +17,6 @@ class BookIndex
         $this -> request = $request;
     }
     public function converToObject(){
-        $readJson = new ReadJson();
-        $readCsv = new ReadCsv();
-        $lst = [];
-        foreach ($readJson -> readFileJson()["books"] as $item){
-            $lst[] = new BookDto($item["ISBN"],$item["bookTitle"],$item["authorName"],$item["pagesCount"],$item["publishDate"]);
-        }
-        foreach ($readCsv -> readFileCsv() as $item){
-            $lst[] = new BookDto($item["ISBN"],$item["bookTitle"],$item["authorName"],$item["pagesCount"],$item["publishDate"]);
-        }
-        var_dump($lst);
+
     }
 }
