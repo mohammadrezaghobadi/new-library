@@ -22,7 +22,8 @@ class RequestManagement
             $validationIndex = new ValidationIndex();
             try {
                 $validationIndex -> checkValidation($this -> request);
-                new BookIndex($this -> request);
+                $bookIndex = new BookIndex($this -> request);
+                $bookIndex -> converToObject();
             }catch (Exception $e){
                 echo "Enter the desired type";
             }

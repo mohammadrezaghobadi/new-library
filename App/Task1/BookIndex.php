@@ -3,6 +3,7 @@
 namespace App\Task1;
 
 use App\Dto\BookDto;
+use App\ReadJson_Csv\ReadCsv;
 use App\ReadJson_Csv\ReadJson;
 
 class BookIndex
@@ -15,9 +16,16 @@ class BookIndex
     {
         $this -> request = $request;
     }
-    private function converToObject(){
-        foreach (new ReadJson() as $item){
-            new BookDto($item["books"]["ISBN"],$item["books"]["bookTitle"],$item["books"]["ISBN"],$item["books"]["ISBN"],$item["books"]["ISBN"]);
+    public function converToObject(){
+        $readJson = new ReadJson();
+        $readCsv = new ReadCsv();
+        $lst = [];
+        foreach ($readJson -> readFileJson()["books"] as $item){
+            $lst[] = new BookDto($item["ISBN"],$item["bookTitle"],$item["authorName"],$item["pagesCount"],$item["publishDate"]);
         }
+        foreach ($readCsv -> readFileCsv() as $item){
+            $lst[] = new BookDto($item["ISBN"],$item["bookTitle"],$item["authorName"],$item["pagesCount"],$item["publishDate"]);
+        }
+        var_dump($lst);
     }
 }
