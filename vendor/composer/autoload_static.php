@@ -20,6 +20,16 @@ class ComposerStaticInitc28f9c6e991ef99871d726c816891823
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'B' => 
+        array (
+            'Biblys' => 
+            array (
+                0 => __DIR__ . '/..' . '/biblys/isbn/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -29,6 +39,7 @@ class ComposerStaticInitc28f9c6e991ef99871d726c816891823
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitc28f9c6e991ef99871d726c816891823::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitc28f9c6e991ef99871d726c816891823::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitc28f9c6e991ef99871d726c816891823::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitc28f9c6e991ef99871d726c816891823::$classMap;
 
         }, null, ClassLoader::class);

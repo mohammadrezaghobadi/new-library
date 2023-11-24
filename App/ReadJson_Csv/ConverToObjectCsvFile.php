@@ -5,7 +5,7 @@ namespace App\ReadJson_Csv;
 use App\Dto\BookDto;
 use Exception;
 
-class ConverToObjectCsvFile implements ConverToObjectCsvInterface
+class ConverToObjectCsvFile implements ConverToObjectInterface
 {
     public function readCsvFile():array{
         $fileCsv = [];
@@ -24,7 +24,7 @@ class ConverToObjectCsvFile implements ConverToObjectCsvInterface
     /**
      * @throws Exception
      */
-    public function converToObjectCsv():array{
+    public function converToObject():array{
         $lst = [];
         $timestamp = $this -> readCsvFile();
         foreach ($timestamp as $item){

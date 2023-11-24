@@ -9,7 +9,8 @@ class ValidationIndex
     /**
      * @throws Exception
      */
-    public function checkValidation($request){
+    public function checkValidation($request): void
+    {
         if (gettype($request -> parameters -> page) !== "integer"){
             throw new Exception();
         }elseif (gettype($request -> parameters -> perPage) !== "integer"){

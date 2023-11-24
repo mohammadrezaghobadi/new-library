@@ -5,7 +5,7 @@ namespace App\ReadJson_Csv;
 use App\Dto\BookDto;
 use Exception;
 
-class ConverToObjectJsonFile implements ConverToObjectJsonInterface
+class ConverToObjectJsonFile implements ConverToObjectInterface
 {
     public function readJsonFile():array{
         return json_decode(file_get_contents(__DIR__ . "\..\..\assingment\database\books.json"),true);
@@ -13,7 +13,7 @@ class ConverToObjectJsonFile implements ConverToObjectJsonInterface
     /**
      * @throws Exception
      */
-    public function converToObjectJson():array{
+    public function converToObject():array{
         $lst = [];
         $timeStamp = $this -> readJsonFile()["books"];
         foreach ($timeStamp as $item){

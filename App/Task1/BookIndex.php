@@ -5,6 +5,7 @@ namespace App\Task1;
 use App\ReadJson_Csv\ConverToObjectCsvFile;
 use App\ReadJson_Csv\ConverToObjectJsonFile;
 use App\Trait\TraitTime;
+use Exception;
 
 class BookIndex
 {
@@ -17,21 +18,40 @@ class BookIndex
     {
         $this -> request = $request;
     }
+
+    /**
+     * @throws Exception
+     */
     private function handelDataCsv():array{
         $converToObjectCsv = new ConverToObjectCsvFile();
-        return $converToObjectCsv -> converToObjectCsv();
+        return $converToObjectCsv -> converToObject();
     }
+
+    /**
+     * @throws Exception
+     */
     private function handelDataJson():array{
         $converToObjectJson = new ConverToObjectJsonFile();
-        return $converToObjectJson -> converToObjectJson();
+        return $converToObjectJson -> converToObject();
     }
+
+    /**
+     * @throws Exception
+     */
     public function mergeData():array{
         return array_merge($this -> handelDataJson(),$this->handelDataCsv());
     }
 
+    /**
+     * @throws Exception
+     */
     public function timeStamp():array{
         return $this -> timeObject($this -> mergeData());
     }
+
+    /**
+     * @throws Exception
+     */
     public function handel():void{
         $arrangeTheLibrary = new ArrangeTheLibrary();
         $authorsChoise = new AuthorsChoice();
