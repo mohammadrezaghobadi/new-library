@@ -6,6 +6,8 @@ use App\Task1\BookIndex;
 use App\Task1\ValidationIndex;
 use App\Task2\ShowBook;
 use App\Task2\ValidationShow;
+use App\Task4\RemoveBook;
+use App\Task4\RemoveValidation;
 use Exception;
 
 class RequestManagement
@@ -24,6 +26,8 @@ class RequestManagement
             $this -> task1();
         }elseif ($this -> request -> command_name === "Task2"){
             $this -> task2();
+        }elseif ($this -> request -> command_name === "Task3"){
+            $this -> task3();
         }
     }
     private function task1():void{
@@ -47,6 +51,18 @@ class RequestManagement
             $bookShow = new ShowBook($this -> request -> parameters);
             $bookShow -> handel();
         }catch (Exception){
+            echo "<br />";
+            echo "Enter the desired type";
+        }
+    }
+    private function task3(): void
+    {
+        $removeValidation = new RemoveValidation();
+        try {
+            $removeValidation -> validationShow($this -> request);
+            $removeBook = new RemoveBook($this -> request -> parameters);
+            $removeBook -> handel();
+        } catch (Exception $e) {
             echo "<br />";
             echo "Enter the desired type";
         }
