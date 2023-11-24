@@ -1,8 +1,6 @@
 {
   "command_name": "Task1",
   "parameters": {
-      "page": 2,
-      "perPage": 0,
-      "authorName": "Aldous Orson"
+      "ISBN" : "978-1451635626"
   }
 }
