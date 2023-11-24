@@ -2,16 +2,14 @@
 
 namespace App\Task2;
 
-use App\ReadJson_Csv\ConverToObjectCsvFile;
-use App\ReadJson_Csv\ConverToObjectJsonFile;
-use App\Trait\MergeData;
+use App\Trait\TraitMergeData;
 use App\Trait\TraitTime;
 use Exception;
 
 class ShowBook
 {
     use TraitTime;
-    use MergeData;
+    use TraitMergeData;
 
     /**
      * @throws Exception

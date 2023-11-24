@@ -6,7 +6,7 @@ use App\ReadJson_Csv\ConverToObjectCsvFile;
 use App\ReadJson_Csv\ConverToObjectJsonFile;
 use Exception;
 
-trait MergeData
+trait TraitMergeData
 {
     /**
      * @var mixed

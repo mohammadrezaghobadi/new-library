@@ -26,8 +26,8 @@ class RequestManagement
             $this -> task1();
         }elseif ($this -> request -> command_name === "Task2"){
             $this -> task2();
-        }elseif ($this -> request -> command_name === "Task3"){
-            $this -> task3();
+        }elseif ($this -> request -> command_name === "Task4"){
+            $this -> task4();
         }
     }
     private function task1():void{
@@ -55,7 +55,7 @@ class RequestManagement
             echo "Enter the desired type";
         }
     }
-    private function task3(): void
+    private function task4(): void
     {
         $removeValidation = new RemoveValidation();
         try {

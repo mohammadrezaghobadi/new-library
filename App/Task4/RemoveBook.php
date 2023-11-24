@@ -2,16 +2,14 @@
 
 namespace App\Task4;
 
-use App\ReadJson_Csv\ConverToObjectCsvFile;
-use App\ReadJson_Csv\ConverToObjectJsonFile;
-use App\Trait\MergeData;
+use App\Trait\TraitMergeData;
 use App\Trait\TraitTime;
 use Exception;
 
 class RemoveBook
 {
     use TraitTime;
-    use MergeData;
+    use TraitMergeData;
 
     /**
      * @throws Exception
@@ -26,6 +24,10 @@ class RemoveBook
     public function handel(): void
     {
         $removeBook = new DeletBook();
+        echo "<br />";
+        echo "--------------------------------";
+        echo "<br />";
+        echo "remove_book";
         $removeBook -> removeBooks($this -> timeStamp(),$this -> request -> remove);
     }
 }
