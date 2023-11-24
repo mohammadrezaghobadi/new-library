@@ -11,12 +11,18 @@ class AddValidation
      */
     public function addValidation($request): void
     {
-        if (gettype($request -> book -> ISBN) !== "string"){
-            throw new Exception();
-        }elseif (gettype($request -> book -> bookTitle) !== "string"){
-            throw new Exception();
-        }elseif (gettype($request -> book -> authorName) !== "string"){
-            throw new Exception();
+        foreach ($request -> book as $item){
+            if (gettype($item -> ISBN) !== "string"){
+                throw new Exception();
+            }elseif (gettype($item -> bookTitle) !== "string"){
+                throw new Exception();
+            }elseif (gettype($item -> authorName) !== "string"){
+                throw new Exception();
+            }elseif (gettype($item -> pagesCount) !== "integer"){
+                throw new Exception();
+            }elseif (gettype($item -> publishDate) !== "string"){
+                throw new Exception();
+            }
         }
     }
 }

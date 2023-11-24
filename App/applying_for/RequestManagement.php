@@ -78,6 +78,9 @@ class RequestManagement
             $addValidation -> addValidation($this -> request -> parameters);
             $bookNew = new AddBook($this -> request -> parameters);
             $bookNew -> handel();
+        }catch (Exception){
+            echo "<br />";
+            echo "Enter the desired type";
         }
     }
     private function task4(): void
