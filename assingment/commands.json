@@ -1,6 +1,6 @@
 {
-  "command_name": "Task5",
+  "command_name": "Task3",
   "parameters": {
-      "update" : [412,["pagesCount",100]]
+      "book" : [{"ISBN":"978-1451635627","bookTitle": "php","authorName": "mohammad","pagesCount": 100,"publishDate": "2023-10-02"}]
   }
 }
