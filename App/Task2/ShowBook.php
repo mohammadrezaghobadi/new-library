@@ -13,7 +13,7 @@ class ShowBook
     /**
      * @var mixed
      */
-    public mixed $request;
+    private mixed $request;
     public function __construct($request)
     {
         $this -> request = $request;
@@ -47,5 +47,17 @@ class ShowBook
      */
     public function timeStamp():array{
         return $this -> timeObject($this -> mergeData());
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function handel(): void{
+        $showAuthor = new ShowAuthor();
+        echo "<br />";
+        echo "--------------------------------";
+        echo "<br />";
+        echo "show_Author";
+        $showAuthor -> showAuthor($this -> timeStamp(),$this -> request -> ISBN);
     }
 }

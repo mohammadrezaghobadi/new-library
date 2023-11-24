@@ -45,6 +45,7 @@ class RequestManagement
         try {
             $validationShow -> validationShow($this -> request);
             $bookShow = new ShowBook($this -> request -> parameters);
+            $bookShow -> handel();
         }catch (Exception){
             echo "<br />";
             echo "Enter the desired type";
