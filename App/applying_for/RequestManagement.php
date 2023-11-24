@@ -8,6 +8,8 @@ use App\Task2\ShowBook;
 use App\Task2\ValidationShow;
 use App\Task4\RemoveBook;
 use App\Task4\RemoveValidation;
+use App\Task5\ChangeDataBook;
+use App\Task5\ChengeValidation;
 use Exception;
 
 class RequestManagement
@@ -28,6 +30,8 @@ class RequestManagement
             $this -> task2();
         }elseif ($this -> request -> command_name === "Task4"){
             $this -> task4();
+        }else{
+            $this -> task5();
         }
     }
     private function task1():void{
@@ -64,6 +68,19 @@ class RequestManagement
             $removeBook -> handel();
         } catch (Exception $e) {
             echo "<br />";
+            echo "Enter the desired type";
+        }
+    }
+
+    private function task5():void{
+        $changeValidation = new ChengeValidation();
+        try {
+            $changeValidation -> chengeValidation($this -> request -> parameters);
+            $changeDataBook = new ChangeDataBook($this -> request -> parameters);
+            $changeDataBook -> handel();
+        }catch (\ValueError){
+            echo "You cannot change ISBN";
+        }catch (Exception){
             echo "Enter the desired type";
         }
     }

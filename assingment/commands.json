@@ -1,6 +1,6 @@
 {
-  "command_name": "Task4",
+  "command_name": "Task5",
   "parameters": {
-      "remove" : "Aldous Orson"
+      "update" : [412,["pagesCount",100]]
   }
 }
