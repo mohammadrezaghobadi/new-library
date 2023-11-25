@@ -38,28 +38,28 @@ use Exception;
     {
         try {
             foreach ($this -> newTimeObject() as $book){
-                Isbn::validateAsEan13($book -> ISBN);
+                Isbn::validateAsEan13(str_replace("-","",$book -> ISBN));
+            }
+            foreach ($this -> newTimeObject() as $book){
+                foreach ($data as $item){
+                    if ($item -> ISBN === $book -> ISBN){
+                        $newBook = $data;
+                        break 2;
+                    }else{
+                        $newBook = array_merge($data ,$this -> newTimeObject());
+                    }
+                }
+            }
+            foreach ($newBook as $items) {
+                echo "<br />";
+                echo '------------------------------' . "<br />";
+                foreach ($items as $item) {
+                    echo "<br />";
+                    print_r($item) . "<br />";
+                }
             }
         } catch (\Biblys\Isbn\IsbnValidationException $e) {
             echo "The desired ISBN is not of the ISBN-13 type";
-        }
-        foreach ($this -> newTimeObject() as $book){
-            foreach ($data as $item){
-                if ($item -> ISBN === $book -> ISBN){
-                    $newBook = $data;
-                    break 2;
-                }else{
-                    $newBook = array_merge($data ,$this -> newTimeObject());
-                }
-            }
-        }
-        foreach ($newBook as $items) {
-            echo "<br />";
-            echo '------------------------------' . "<br />";
-            foreach ($items as $item) {
-                echo "<br />";
-                print_r($item) . "<br />";
-            }
         }
     }
 }
